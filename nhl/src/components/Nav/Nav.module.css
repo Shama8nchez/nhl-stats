@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  justify-content: end;
+  padding: 20px 120px;
+  gap: 50px;
+  height: 60px;
+}
+
+.navItem {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  text-decoration: none;
+}
+/* 
+.active {
+  color: rgba(255,255,255,0.2);
+} */
