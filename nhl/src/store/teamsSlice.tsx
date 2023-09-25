@@ -22,7 +22,6 @@ export const teamsSlice = createSlice({
         
       })
       .addCase(getTeams.fulfilled, (state, action) => {
-        console.log(action.payload)
         state.teams = action.payload;
       })
       .addCase(getTeams.rejected, () => {

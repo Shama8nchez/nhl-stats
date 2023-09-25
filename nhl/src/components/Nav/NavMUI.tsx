@@ -12,7 +12,8 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
+import Teams from '../Teams/Teams';
 
 interface Props {
   window?: () => Window;
@@ -36,7 +37,7 @@ export default function DrawerAppBar(props: Props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <NavLink to={`/${item.toLocaleLowerCase()}`} style={{color: 'inherit', textDecoration: 'none'}}>
+              <NavLink to={`/${item.toLocaleLowerCase()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
                 <ListItemText primary={item} />
               </NavLink>
             </ListItemButton>
@@ -72,7 +73,7 @@ export default function DrawerAppBar(props: Props) {
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff', marginRight: '25px' }}>
-                <NavLink to={`/${item.toLocaleLowerCase()}`} style={{color: 'inherit', textDecoration: 'none'}}>
+                <NavLink to={`/${item.toLocaleLowerCase()}`} style={{ color: 'inherit', textDecoration: 'none' }}>
                   {item}
                 </NavLink>
               </Button>
@@ -97,9 +98,12 @@ export default function DrawerAppBar(props: Props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3 }}>
+      <Box component="main" sx={{ p: 3, width: '100%' }}>
         <Toolbar />
-        
+        <Routes>
+          <Route path='/teams' element={<Teams />} />
+          <Route path='/teams/:id' element={<Teams />} />
+        </Routes>
       </Box>
     </Box>
   );
