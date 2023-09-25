@@ -4,20 +4,23 @@ import { getTeams } from "../../store/teamsSlice";
 import classes from './Teams.module.css';
 import TeamCard from "./Team/TeamCard";
 import { Team } from "../../types/TeamsTypes";
+import Loader from "../../UI/Loader/Loader";
 
 function Teams() {
   const teams: Team[] = useAppSelector(state => state.teams.teams)
   const dispatch = useAppDispatch()
+  const isLoading: boolean = useAppSelector(state => state.teams.isLoading)
 
   useEffect(() => {
     dispatch(getTeams())
   }, [])
 
   return (
+    
     <div className={classes.teams}>
-      {teams.map(team =>
+      {isLoading ? <Loader/> : teams.map(team =>
         <TeamCard team={team} key={team.id} />
-      )}
+      )} 
     </div >
   )
 }

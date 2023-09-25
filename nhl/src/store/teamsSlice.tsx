@@ -8,9 +8,11 @@ export const getTeams = createAsyncThunk(
 )
 
 const initialState: {
-  teams: Team[]
+  teams: Team[],
+  isLoading: boolean
 } = {
-  teams: []
+  teams: [],
+  isLoading: false
 }
 
 export const teamsSlice = createSlice({
@@ -18,11 +20,12 @@ export const teamsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getTeams.pending, () => {
-        
+      .addCase(getTeams.pending, (state) => {
+        state.isLoading = true
       })
       .addCase(getTeams.fulfilled, (state, action) => {
         state.teams = action.payload;
+        state.isLoading = false
       })
       .addCase(getTeams.rejected, () => {
 
