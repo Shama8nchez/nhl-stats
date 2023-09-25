@@ -1,6 +1,6 @@
 import classes from './Logo.module.css'
 
-const Logo = (props: {logo: string}) => {
+const Logo: React.FC<{logo: string}> = (props) => {
   return (
     <img src={props.logo} alt="team_logo" className={classes.logo} />
   )

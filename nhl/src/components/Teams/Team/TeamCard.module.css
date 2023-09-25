@@ -1,0 +1,33 @@
+.team {
+  display: flex;
+  width: 45%;
+  height: 60px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px #1976d2;
+  transition: all 0.3s;
+}
+
+.team:hover {
+  box-shadow: 0 1px 6px #1976d2;
+}
+
+.teamName {
+  margin: 0;
+  width: 275px;
+  text-align: left;
+  line-height: 30px;
+}
+
+.showMore {
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.info {
+  align-self: flex-end;
+  font-size: 14px;
+  color: #1976d2;
+  text-decoration: none;
+}
