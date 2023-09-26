@@ -5,7 +5,7 @@ import classes from './TeamPage.module.css';
 import Logos from '../../assets/logo/index'
 import { Team } from "../../types/TeamsTypes";
 import Loader from "../../UI/Loader/Loader";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import NotFound from "../Pages/NotFound/NotFound";
 import Logo from "../../UI/Logo/Logo";
 
@@ -38,7 +38,7 @@ function TeamPage() {
       {isLoading ? <Loader /> :
         team.length ?
           <div className={classes.content}>
-            <h1 className={classes.teamTitle}><Logo logo={Logos[team[0].abbreviation]} size="medium"/>{team[0].name}</h1>
+            <h1 className={classes.teamTitle}><Logo logo={Logos[team[0].abbreviation]} size="medium" />{team[0].name}</h1>
             <div className={classes.container}>
               <div className={classes.commonInfo}>
                 <h2>COMMON INFORMATION</h2>
@@ -54,17 +54,29 @@ function TeamPage() {
                 <div>
                   <div className={classes.position}>Goalkeepers</div>
                   {team[0].roster?.roster.filter(player => player.position.code === 'G').map(player =>
-                    <div><span className={classes.number}>{player.jerseyNumber}</span> {player.person.fullName}</div>)}
+                    <div>
+                      <span className={classes.number}>{player.jerseyNumber}</span>
+                      <NavLink to={`/player/${player.person.id}`} className={classes.link}>{player.person.fullName}</NavLink>
+                    </div>
+                  )}
                 </div>
                 <div>
                   <div className={classes.position}>Defenders</div>
                   {team[0].roster?.roster.filter(player => player.position.code === 'D').map(player =>
-                    <div><span className={classes.number}>{player.jerseyNumber}</span> {player.person.fullName}</div>)}
+                    <div>
+                      <span className={classes.number}>{player.jerseyNumber}</span>
+                      <NavLink to={`/player/${player.person.id}`} className={classes.link}>{player.person.fullName}</NavLink>
+                    </div>
+                  )}
                 </div>
                 <div>
                   <div className={classes.position}>Forwards</div>
                   {team[0].roster?.roster.filter(player => (player.position.code === 'C' || player.position.code === 'RW' || player.position.code === 'LW')).map(player =>
-                    <div><span className={classes.number}>{player.jerseyNumber}</span> {player.person.fullName}</div>)}
+                    <div>
+                      <span className={classes.number}>{player.jerseyNumber}</span>
+                      <NavLink to={`/player/${player.person.id}`} className={classes.link}>{player.person.fullName}</NavLink>
+                    </div>
+                  )}
                 </div>
               </div>
 
