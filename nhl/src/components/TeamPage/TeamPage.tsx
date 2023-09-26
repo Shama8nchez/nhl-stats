@@ -10,7 +10,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 
 
 function TeamPage() {
-  const teams: Team[] = useAppSelector(state => state.teams.teams)
+  const team: Team[] = useAppSelector(state => state.teams.team)
   const id = useAppSelector(state => state.teams.id)
   const isLoading: boolean = useAppSelector(state => state.teams.isLoading)
   const dispatch = useAppDispatch()
@@ -27,7 +27,7 @@ function TeamPage() {
     
     <div className={classes.teams}>
       {isLoading ? <Loader/> : 
-      teams.length ? <div style={{color: 'black'}}>{teams[0].abbreviation}</div> : <NotFound/>} 
+      team.length ? <div style={{color: 'black'}}>{team[0].abbreviation}</div> : <NotFound/>} 
     </div >
   )
 }

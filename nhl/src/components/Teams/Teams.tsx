@@ -12,15 +12,16 @@ function Teams() {
   const isLoading: boolean = useAppSelector(state => state.teams.isLoading)
 
   useEffect(() => {
-    dispatch(getTeams())
+    if (!teams.length)
+      dispatch(getTeams())
   }, [])
 
   return (
-    
+
     <div className={classes.teams}>
-      {isLoading ? <Loader/> : teams.map(team =>
+      {isLoading ? <Loader /> : teams.map(team =>
         <TeamCard team={team} key={team.id} />
-      )} 
+      )}
     </div >
   )
 }

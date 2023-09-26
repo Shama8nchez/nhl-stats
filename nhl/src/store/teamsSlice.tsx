@@ -14,12 +14,12 @@ export const getTeam = createAsyncThunk(
 
 const initialState: {
   teams: Team[],
-  team: Team | null,
+  team: Team[],
   id: number | null,
   isLoading: boolean
 } = {
   teams: [],
-  team: null,
+  team: [],
   id: null,
   isLoading: false
 }
@@ -43,7 +43,7 @@ export const teamsSlice = createSlice({
         state.isLoading = true
       })
       .addCase(getTeam.fulfilled, (state, action) => {
-        state.teams = action.payload;
+        state.team = action.payload;
         state.isLoading = false
       })
       .addCase(getTeam.rejected, () => {
