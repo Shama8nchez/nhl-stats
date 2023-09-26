@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Teams from '../Teams/Teams';
+import TeamPage from '../TeamPage/TeamPage';
 
 interface Props {
   window?: () => Window;
@@ -102,7 +103,7 @@ export default function DrawerAppBar(props: Props) {
         <Toolbar />
         <Routes>
           <Route path='/teams' element={<Teams />} />
-          <Route path='/teams/:id' element={<Teams />} />
+          <Route path='/teams/:id' element={<TeamPage />} />
         </Routes>
       </Box>
     </Box>

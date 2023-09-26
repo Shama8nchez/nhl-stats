@@ -11,7 +11,7 @@ export const teamsAPI = {
   async getTeam(id: number) {
     const response = await fetch(`${BASE_URL}/api/v1/teams/${id}`);
     const data = await response.json();
-    const team = await data.team;
+    const team = await data.teams;
     return team;
   }
 }

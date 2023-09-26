@@ -1,0 +1,21 @@
+.teams {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.div {
+  padding-top: 25px;
+}
+
+.h2 {
+  font-size: 2em;
+}
+
+.h3 {
+  font-size: 1.5em;
+}
+
+.p {
+  font-size: 1.25em;
+}
