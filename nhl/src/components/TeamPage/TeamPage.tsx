@@ -38,7 +38,7 @@ function TeamPage() {
       {isLoading ? <Loader /> :
         team.length ?
           <div className={classes.content}>
-            <h1 className={classes.teamTitle}><Logo logo={Logos[team[0].abbreviation]} size="medium" />{team[0].name}</h1>
+            <h1 className={classes.teamTitle}><Logo logo={Logos[team[0].name]} size="medium" />{team[0].name}</h1>
             <div className={classes.container}>
               <div className={classes.commonInfo}>
                 <h2>COMMON INFORMATION</h2>

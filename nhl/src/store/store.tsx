@@ -2,10 +2,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useSelector, useDispatch } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import teamsReducer from './teamsSlice'
+import playersReducer from './playersSlice';
 
 const store = configureStore({
   reducer: {
     teams: teamsReducer,
+    players: playersReducer
   }
 });
 

@@ -9,3 +9,9 @@
   width: 120px;
   height: 80px;
 }
+
+.large {
+  display: block;
+  width: 240px;
+  height: 160px;
+}
