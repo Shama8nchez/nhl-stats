@@ -13,7 +13,27 @@ export type Team = {
   shortName: string,
   officialSiteUrl: string,
   franchiseId: number,
-  active: boolean
+  active: boolean,
+  roster?: {
+    roster: Roster[],
+    link: string
+  }
+}
+
+type Roster = {
+  person: {
+    id: number,
+    fullName: string,
+    link: string
+  },
+  jerseyNumber: string,
+  position: {
+    code: "C" | "D" | "G" | "RW" | "LW"
+    name: string,
+    type: string,
+    abbreviation: "C" | "D" | "G" | "RW" | "LW"
+  }
+
 }
 
 type Venue = {

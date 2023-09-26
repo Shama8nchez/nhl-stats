@@ -12,14 +12,21 @@ export const getTeam = createAsyncThunk(
   teamsAPI.getTeam
 )
 
+export const getStats = createAsyncThunk(
+  'teams/getStats',
+  teamsAPI.getStats
+)
+
 const initialState: {
   teams: Team[],
   team: Team[],
+  stats: any,
   id: number | null,
   isLoading: boolean
 } = {
   teams: [],
   team: [],
+  stats: null,
   id: null,
   isLoading: false
 }
@@ -47,6 +54,15 @@ export const teamsSlice = createSlice({
         state.isLoading = false
       })
       .addCase(getTeam.rejected, () => {
+
+      })
+      .addCase(getStats.pending, () => {
+        
+      })
+      .addCase(getStats.fulfilled, (state, action) => {
+        state.stats = action.payload;
+      })
+      .addCase(getStats.rejected, () => {
 
       })
   },

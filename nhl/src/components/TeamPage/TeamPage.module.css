@@ -5,3 +5,55 @@
   gap: 15px;
   width: 100%;
 }
+
+.content {
+  width: 100%;
+}
+
+.teamTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  gap: 10px;
+  grid-template-areas: 
+    "C C C P P"
+    "S S S P P"
+}
+
+.commonInfo {
+  grid-area: C;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.commonInfo h2 {
+  width: 100%;
+}
+
+.roster {
+  grid-area: P;
+  text-align: left;
+}
+
+.number {
+  display: inline-block;
+  width: 25px;
+  margin-right: 5px;
+  text-align: right;
+  font-weight: 700;
+}
+
+.position {
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.stats {
+  grid-area: S;
+  padding-left: 50px;
+  text-align: left;
+}

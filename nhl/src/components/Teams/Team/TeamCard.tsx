@@ -15,7 +15,7 @@ function TeamCard(props: {team: Team}) {
 
   return (
     <div className={classes.team} key={props.team.id}>
-      <Logo logo={Logos[props.team.abbreviation]} />
+      <Logo logo={Logos[props.team.abbreviation]} size={'small'}/>
       <h2 className={classes.teamName}>{props.team.name}</h2>
       <div className={classes.showMore}>
         <div className={classes.info} onClick={onClick}><NavLink to={`/teams/${props.team.id}`} className={classes.info}>SHOW MORE</NavLink></div>
