@@ -16,13 +16,15 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import Teams from '../Teams/Teams';
 import TeamPage from '../TeamPage/TeamPage';
 import PlayerPage from '../Pages/PlayerPage/PlayerPage';
+import NotFound from '../Pages/NotFound/NotFound';
+import MainPage from '../Pages/MainPage/MainPage';
 
 interface Props {
   window?: () => Window;
 }
 
 const drawerWidth = 240;
-const navItems = ['About', 'Teams', 'Drivers'];
+const navItems = ['Main', 'Teams', 'About'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -103,9 +105,11 @@ export default function DrawerAppBar(props: Props) {
       <Box component="main" sx={{ p: 3, width: '100%' }}>
         <Toolbar />
         <Routes>
+          <Route path='/' element={<MainPage />} />
           <Route path='/teams' element={<Teams />} />
           <Route path='/teams/:id' element={<TeamPage />} />
           <Route path='/player/:id' element={<PlayerPage />} />
+          <Route path='*' element={<NotFound />} />
         </Routes>
       </Box>
     </Box>

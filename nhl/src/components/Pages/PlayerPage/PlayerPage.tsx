@@ -43,6 +43,7 @@ function PlayerPage() {
             </div>
 
             <div className={classes.stats}>
+              <h2>Player statistics</h2>
               <table className={classes.statsTable}>
                 <thead>
                   <tr>

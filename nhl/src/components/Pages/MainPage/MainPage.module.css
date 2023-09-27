@@ -1,0 +1,55 @@
+.main {
+  padding: 150px 50px 30px 50px;
+}
+
+.container {
+  width: 600px;
+  margin-bottom: 40px;
+}
+
+.currentSeason {
+  display: flex;
+  justify-content: end;
+}
+
+.title {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 32px;
+  letter-spacing: 2.5px;
+  word-spacing: 10px;
+}
+
+.description {
+  letter-spacing: 1.1px;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.button {
+  display: block;
+  width: 220px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 5px;
+  background-color: rgba(25, 118, 210, 0.4);
+  text-align: center;
+  font-size: 22px;
+  line-height: 40px;
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    width: 400px;
+  }
+
+  .title {
+    margin-bottom: 15px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+}
