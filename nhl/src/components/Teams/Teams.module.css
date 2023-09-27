@@ -2,6 +2,21 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px;
   width: 100%;
+}
+
+.conference {
+  width: 45%;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
+.division {
+  margin-bottom: 30px;
+}
+
+h3 {
+  text-align: left;
 }

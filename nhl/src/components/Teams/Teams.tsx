@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { getTeams } from "../../store/teamsSlice";
 import classes from './Teams.module.css';
-import TeamCard from "./Team/TeamCard";
 import { Team } from "../../types/TeamsTypes";
 import Loader from "../UI/Loader/Loader";
+import Division from "./Division/Division";
 
 function Teams() {
   const teams: Team[] = useAppSelector(state => state.teams.teams)
@@ -19,9 +19,19 @@ function Teams() {
   return (
 
     <div className={classes.teams}>
-      {isLoading ? <Loader /> : teams.map(team =>
-        <TeamCard team={team} key={team.id} />
-      )}
+      {isLoading ? <Loader /> : <>
+        <div className={classes.conference}>
+          <h2>Western Conference</h2>
+          <Division teams={teams} division='Pacific' />
+          <Division teams={teams} division='Central' />
+        </div>
+        <div className={classes.conference}>
+          <h2>Eastern Conference</h2>
+          <Division teams={teams} division='Metropolitan' />
+          <Division teams={teams} division='Atlantic' />
+        </div>
+      </>
+      }
     </div >
   )
 }
