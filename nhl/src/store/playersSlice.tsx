@@ -1,21 +1,28 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
 import { playersAPI } from '../API/playersAPI';
-import { Player } from '../types/PlayersTypes';
+import { Player, Stats } from '../types/PlayersTypes';
 
 export const getPlayer = createAsyncThunk(
   'players/getPlayer',
   playersAPI.getPlayer
 )
 
+export const getStats = createAsyncThunk(
+  'players/getStats',
+  playersAPI.getStats
+)
+
 const initialState: {
   player: Player[],
   isLoading: boolean,
-  id: number | null
+  id: number | null,
+  stats: Stats[]
 } = {
   player: [],
   isLoading: false,
-  id: null
+  id: null,
+  stats: []
 }
 
 export const playersSlice = createSlice({
@@ -31,6 +38,15 @@ export const playersSlice = createSlice({
         state.isLoading = false
       })
       .addCase(getPlayer.rejected, () => {
+
+      })
+      .addCase(getStats.pending, () => {
+
+      })
+      .addCase(getStats.fulfilled, (state, action) => {
+        state.stats = action.payload;
+      })
+      .addCase(getStats.rejected, () => {
 
       })
   },

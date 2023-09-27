@@ -31,3 +31,27 @@ export type Player = {
     abbreviation: string
   }
 }
+
+export type Stats = {
+  season: string,
+  stat: {
+    assists: number,
+    goals: number,
+    pim: number,
+    games: number,
+    penaltyMinutes: string,
+    faceOffPct: number,
+    points: number
+  },
+  team: {
+    id: number,
+    name: string,
+    link: string
+  },
+  league: {
+    id: number,
+    name: string,
+    link: string
+  },
+  sequenceNumber: number
+}
