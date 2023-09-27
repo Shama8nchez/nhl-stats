@@ -23,3 +23,13 @@
     "C C C P P"
     "S S S P P"
 }
+
+.commonInfo {
+  grid-area: C;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.commonInfo h2 {
+  width: 100%;
+}

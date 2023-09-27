@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/store";
-import { getTeams } from "../../store/teamsSlice";
-import classes from './Teams.module.css';
-import { Team } from "../../types/TeamsTypes";
-import Loader from "../UI/Loader/Loader";
+import { useAppDispatch, useAppSelector } from "../../../store/store";
+import { getTeams } from "../../../store/teamsSlice";
+import classes from './TeamsPage.module.css';
+import { Team } from "../../../types/TeamsTypes";
+import Loader from "../../UI/Loader/Loader";
 import Division from "./Division/Division";
 
 function Teams() {

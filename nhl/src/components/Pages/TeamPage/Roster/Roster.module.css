@@ -1,0 +1,22 @@
+.roster {
+  grid-area: P;
+  text-align: left;
+}
+
+.number {
+  display: inline-block;
+  width: 25px;
+  margin-right: 10px;
+  text-align: right;
+  font-weight: 700;
+}
+
+.position {
+  margin: 5px 0;
+  font-weight: 600;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}

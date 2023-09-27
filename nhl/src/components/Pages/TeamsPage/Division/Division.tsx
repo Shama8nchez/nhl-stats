@@ -2,7 +2,7 @@
 import classes from './Division.module.css';
 import TeamCard from "../Team/TeamCard";
 import React from 'react';
-import { Team } from '../../../types/TeamsTypes';
+import { Team } from '../../../../types/TeamsTypes';
 
 const Division: React.FC<{division: string, teams: Team[]}> = (props) =>  {
   return (

@@ -1,10 +1,10 @@
 import classes from './TeamCard.module.css';
-import Logos from '../../../assets/logo/index'
-import Logo from '../../UI/Logo/Logo'
+import Logos from '../../../../assets/logo/index'
+import Logo from '../../../UI/Logo/Logo'
 import { NavLink } from "react-router-dom";
-import { Team } from '../../../types/TeamsTypes';
-import { useAppDispatch } from '../../../store/store';
-import { setID } from '../../../store/teamsSlice';
+import { Team } from '../../../../types/TeamsTypes';
+import { useAppDispatch } from '../../../../store/store';
+import { setID } from '../../../../store/teamsSlice';
 
 function TeamCard(props: {team: Team}) {
   const dispatch = useAppDispatch()
