@@ -4,7 +4,7 @@ import { getTeams } from "../../store/teamsSlice";
 import classes from './Teams.module.css';
 import TeamCard from "./Team/TeamCard";
 import { Team } from "../../types/TeamsTypes";
-import Loader from "../../UI/Loader/Loader";
+import Loader from "../UI/Loader/Loader";
 
 function Teams() {
   const teams: Team[] = useAppSelector(state => state.teams.teams)

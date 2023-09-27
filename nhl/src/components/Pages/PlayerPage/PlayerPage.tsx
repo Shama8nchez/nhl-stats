@@ -1,12 +1,12 @@
 import classes from './PlayerPage.module.css'
-import Logo from "../../../UI/Logo/Logo";
+import Logo from "../../UI/Logo/Logo";
 import Logos from '../../../assets/logo/index'
 import { Player, Stats } from '../../../types/PlayersTypes';
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
 import { useParams } from 'react-router-dom';
 import { getPlayer, getStats, setID } from '../../../store/playersSlice';
-import Loader from '../../../UI/Loader/Loader';
+import Loader from '../../UI/Loader/Loader';
 import NotFound from '../NotFound/NotFound';
 
 function PlayerPage() {

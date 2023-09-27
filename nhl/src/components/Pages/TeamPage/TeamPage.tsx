@@ -1,12 +1,12 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/store";
-import { getTeam, setID, getStats } from "../../store/teamsSlice";
+import { useAppDispatch, useAppSelector } from "../../../store/store";
+import { getTeam, setID, getStats } from "../../../store/teamsSlice";
 import classes from './TeamPage.module.css';
-import Logos from '../../assets/logo/index'
-import { Team } from "../../types/TeamsTypes";
+import Logos from '../../../assets/logo/index'
+import { Team } from "../../../types/TeamsTypes";
 import Loader from "../../UI/Loader/Loader";
 import { NavLink, useParams } from "react-router-dom";
-import NotFound from "../Pages/NotFound/NotFound";
+import NotFound from "../NotFound/NotFound";
 import Logo from "../../UI/Logo/Logo";
 
 

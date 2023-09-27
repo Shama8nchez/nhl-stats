@@ -14,7 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import Teams from '../Teams/Teams';
-import TeamPage from '../TeamPage/TeamPage';
+import TeamPage from '../Pages/TeamPage/TeamPage';
 import PlayerPage from '../Pages/PlayerPage/PlayerPage';
 import NotFound from '../Pages/NotFound/NotFound';
 import MainPage from '../Pages/MainPage/MainPage';

@@ -1,6 +1,6 @@
 import classes from './TeamCard.module.css';
 import Logos from '../../../assets/logo/index'
-import Logo from '../../../UI/Logo/Logo'
+import Logo from '../../UI/Logo/Logo'
 import { NavLink } from "react-router-dom";
 import { Team } from '../../../types/TeamsTypes';
 import { useAppDispatch } from '../../../store/store';
