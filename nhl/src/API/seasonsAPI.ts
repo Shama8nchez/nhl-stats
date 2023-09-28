@@ -7,4 +7,11 @@ export const seasonsAPI = {
     const seasons = await data.seasons;
     return seasons;
   },
+
+  async getSeason(season: string) {
+    const response = await fetch(`${BASE_URL}/api/v1/standings?season=${season}`);
+    const data = await response.json();
+    const records = await data.records;
+    return records;
+  },
 }

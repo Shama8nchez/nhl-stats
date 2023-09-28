@@ -6,12 +6,13 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Season } from '../../../types/SeasonsTypes';
 import { useAppDispatch, useAppSelector } from '../../../store/store';
 import { useEffect, useState } from 'react';
-import { getSeasons } from '../../../store/seasonsSlice';
+import { getSeason, getSeasons } from '../../../store/seasonsSlice';
 
 const SeasonsPage = () => {
   const [season, setSeason] = useState('');
 
   const seasons: Season[] = useAppSelector(state => state.seasons.seasons)
+  const record = useAppSelector(state => state.seasons.season)
   const dispatch = useAppDispatch()
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -19,8 +20,13 @@ const SeasonsPage = () => {
   };
 
   useEffect(() => {
+    if (!seasons.length)
     dispatch(getSeasons())
   }, [])
+
+  useEffect(() => {
+    dispatch(getSeason(season))
+  }, [season])
 
   return (
     <div>
@@ -41,10 +47,12 @@ const SeasonsPage = () => {
               },
             }}
           >
-            {seasons.map(season => <MenuItem value={10}>{season.seasonId.slice(0,4) + '/' + season.seasonId.slice(4)}</MenuItem>)}
+            {seasons.map(season => <MenuItem value={season.seasonId}>{season.seasonId.slice(0,4) + '/' + season.seasonId.slice(4)}</MenuItem>)}
           </Select>
         </FormControl>
       </Box>
+
+      <div>{record.length ? <div>{record[0].season}</div> : <div></div>}</div>
     </div>
   )
 }

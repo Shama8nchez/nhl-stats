@@ -8,12 +8,19 @@ export const getSeasons = createAsyncThunk(
   seasonsAPI.getSeasons
 )
 
+export const getSeason = createAsyncThunk(
+  'players/getSeason',
+  seasonsAPI.getSeason
+)
+
 const initialState: {
   seasons: Season[],
   isLoading: boolean,
+  season: any
 } = {
   seasons: [],
   isLoading: false,
+  season: []
 }
 
 export const seasonsSlice = createSlice({
@@ -30,6 +37,16 @@ export const seasonsSlice = createSlice({
       })
       .addCase(getSeasons.rejected, () => {
         console.log('reject')
+      })
+      .addCase(getSeason.pending, () => {
+
+      })
+      .addCase(getSeason.fulfilled, (state, action) => {
+        state.season = action.payload;
+
+      })
+      .addCase(getSeason.rejected, () => {
+
       })
   },
   reducers: {
