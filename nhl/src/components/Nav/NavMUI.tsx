@@ -18,13 +18,14 @@ import TeamPage from '../Pages/TeamPage/TeamPage';
 import PlayerPage from '../Pages/PlayerPage/PlayerPage';
 import NotFound from '../Pages/NotFound/NotFound';
 import MainPage from '../Pages/MainPage/MainPage';
+import SeasonsPage from '../Pages/SeasonsPage/SeasonsPage';
 
 interface Props {
   window?: () => Window;
 }
 
 const drawerWidth = 240;
-const navItems = ['Main', 'Teams', 'About'];
+const navItems = ['Main', 'About', 'Teams', 'Seasons'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -107,6 +108,7 @@ export default function DrawerAppBar(props: Props) {
         <Routes>
           <Route path='/' element={<MainPage />} />
           <Route path='/teams' element={<TeamsPage />} />
+          <Route path='/seasons' element={<SeasonsPage />} />
           <Route path='/teams/:id' element={<TeamPage />} />
           <Route path='/player/:id' element={<PlayerPage />} />
           <Route path='*' element={<NotFound />} />

@@ -3,11 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import type { TypedUseSelectorHook } from "react-redux";
 import teamsReducer from './teamsSlice'
 import playersReducer from './playersSlice';
+import seasonsReducer from './seasonsSlice';
 
 const store = configureStore({
   reducer: {
     teams: teamsReducer,
-    players: playersReducer
+    players: playersReducer,
+    seasons: seasonsReducer
   }
 });
 
