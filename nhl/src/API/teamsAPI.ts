@@ -23,5 +23,12 @@ export const teamsAPI = {
     const data = await response.json();
     const team = await data.teams[0].teamStats[0].splits;
     return team;
+  },
+
+  async getNextGame(id: number) {
+    const response = await fetch(`${BASE_URL}/api/v1/teams/${id}?expand=team.schedule.next`);
+    const data = await response.json();
+    const NextGame = await data.teams[0].nextGameSchedule;
+    return NextGame;
   }
 }

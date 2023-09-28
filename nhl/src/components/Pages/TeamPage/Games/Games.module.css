@@ -1,0 +1,29 @@
+.gameInfo {
+  grid-area: G;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.gameInfo h2 {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content h6 {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+}
+
+.score {
+  align-self: center;
+}

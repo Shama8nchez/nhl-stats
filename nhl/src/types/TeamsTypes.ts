@@ -17,7 +17,30 @@ export type Team = {
   roster?: {
     roster: Roster[],
     link: string
-  }
+  },
+  nextGameSchedule?: nextGame | null
+}
+
+export type nextGame = {
+  totalItems: number,
+  totalEvents: number,
+  totalGames: number,
+  totalMatches: number,
+  metaData: {
+    timeStamp: string
+  },
+  dates: [
+    {
+      date: string,
+      totalItems: number,
+      totalEvents: number,
+      totalGames: number,
+      totalMatches: number,
+      games: any,
+      events: [],
+      matches: []
+    }
+  ]
 }
 
 type Roster = {

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
-import { Team } from '../types/TeamsTypes';
+import { Team, nextGame } from '../types/TeamsTypes';
 import { teamsAPI } from '../API/teamsAPI';
 
 export const getTeams = createAsyncThunk(
@@ -17,18 +17,25 @@ export const getStats = createAsyncThunk(
   teamsAPI.getStats
 )
 
+export const getNextGame = createAsyncThunk(
+  'teams/getNextGame',
+  teamsAPI.getNextGame
+)
+
 const initialState: {
   teams: Team[],
   team: Team[],
   stats: any,
   id: number | null,
-  isLoading: boolean
+  isLoading: boolean,
+  nextGame: nextGame | null
 } = {
   teams: [],
   team: [],
   stats: null,
   id: null,
-  isLoading: false
+  isLoading: false,
+  nextGame: null
 }
 
 export const teamsSlice = createSlice({
@@ -63,6 +70,15 @@ export const teamsSlice = createSlice({
         state.stats = action.payload;
       })
       .addCase(getStats.rejected, () => {
+
+      })
+      .addCase(getNextGame.pending, () => {
+        
+      })
+      .addCase(getNextGame.fulfilled, (state, action) => {
+        state.nextGame = action.payload;
+      })
+      .addCase(getNextGame.rejected, () => {
 
       })
   },

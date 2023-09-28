@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
-import { getTeam, setID, getStats } from "../../../store/teamsSlice";
+import { getTeam, setID, getStats, getNextGame } from "../../../store/teamsSlice";
 import classes from './TeamPage.module.css';
 import Logos from '../../../assets/logo/index'
 import { Team } from "../../../types/TeamsTypes";
@@ -11,6 +11,7 @@ import Logo from "../../UI/Logo/Logo";
 import TeamStats from "./TeamStats/TeamStats";
 import Roster from "./Roster/Roster";
 import TeamInfo from "./TeamInfo/TeamInfo";
+import Games from "./Games/Games";
 
 
 function TeamPage() {
@@ -28,6 +29,7 @@ function TeamPage() {
   useEffect(() => {
     if (id) {
       dispatch(getTeam(id));
+      dispatch(getNextGame(id));
     }
   }, [])
 
@@ -46,6 +48,7 @@ function TeamPage() {
             <h1 className={classes.teamTitle}><Logo logo={Logos[team[0].name]} size="medium" />{team[0].name}</h1>
             <div className={classes.container}>
               <TeamInfo />
+              <Games />
               <Roster />
               <TeamStats />
             </div>
