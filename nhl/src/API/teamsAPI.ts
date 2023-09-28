@@ -10,9 +10,12 @@ export const teamsAPI = {
 
   async getTeam(id: number) {
     const response = await fetch(`${BASE_URL}/api/v1/teams/${id}?expand=team.roster`);
-    const data = await response.json();
-    const team = await data.teams;
-    return team;
+    if (response.status === 200) {
+      const data = await response.json();
+      const team = await data.teams;
+      return team;
+    }
+    return []
   },
 
   async getStats(id: number) {

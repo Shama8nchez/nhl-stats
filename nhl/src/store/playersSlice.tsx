@@ -38,7 +38,7 @@ export const playersSlice = createSlice({
         state.isLoading = false
       })
       .addCase(getPlayer.rejected, () => {
-
+        console.log('reject')
       })
       .addCase(getStats.pending, () => {
 

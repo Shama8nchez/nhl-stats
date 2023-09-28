@@ -1,0 +1,19 @@
+.teamTitle {
+  margin-bottom: 0;
+  line-height: 1.1em;
+  text-align: right;
+}
+
+.playerInfo {
+  text-align: left;
+}
+
+.playerInfo div {
+  margin-bottom: 10px;
+}
+
+.position {
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-align: right;
+}

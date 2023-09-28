@@ -1,0 +1,16 @@
+.stats {
+  width: 100%;
+}
+
+.statsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  border-bottom: 2px solid #1976d2;
+}
+
+td {
+  border: 1px dashed #1976d2;
+}

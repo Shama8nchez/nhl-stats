@@ -2,7 +2,7 @@ export type Team = {
   id: number,
   name: string,
   link: string,
-  venue: Venue,
+  venue?: Venue,
   abbreviation: string,
   teamName: string,
   locationName: string,

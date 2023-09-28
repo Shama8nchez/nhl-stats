@@ -1,29 +1,3 @@
-.teams {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
-  width: 100%;
-}
-
-.content {
-  width: 100%;
-}
-
-.teamTitle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  display: grid;
-  gap: 10px;
-  grid-template-areas: 
-    "C C C P P"
-    "S S S P P"
-}
-
 .commonInfo {
   grid-area: C;
   padding-left: 50px;

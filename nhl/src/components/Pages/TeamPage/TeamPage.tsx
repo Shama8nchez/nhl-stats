@@ -41,7 +41,7 @@ function TeamPage() {
 
     <div className={classes.teams}>
       {isLoading ? <Loader /> :
-        team.length ?
+        team.length && team[0].active ?
           <div className={classes.content}>
             <h1 className={classes.teamTitle}><Logo logo={Logos[team[0].name]} size="medium" />{team[0].name}</h1>
             <div className={classes.container}>
