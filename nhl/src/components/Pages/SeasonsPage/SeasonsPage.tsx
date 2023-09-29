@@ -6,12 +6,14 @@ import Standings from './Standings/Standings';
 import StandingsWithDivisions from './Standings/StandingsWithDivisions';
 import StandingsWithConferences from './Standings/StandingsWithConferences';
 import SeasonsSelect from './SeasonSelect/SeasonSelect';
+import Loader from '../../UI/Loader/Loader';
 
 const SeasonsPage = () => {
   const record: Record[] = useAppSelector(state => state.seasons.season)
   const conference = useAppSelector(state => state.seasons.conference)
   const division = useAppSelector(state => state.seasons.division)
   const dispatch = useAppDispatch()
+  const isLoading = useAppSelector(state => state.seasons.isLoading)
 
   useEffect(() => {
     let setC: Set<string> = new Set();
@@ -33,23 +35,27 @@ const SeasonsPage = () => {
   return (
     <div>
       <SeasonsSelect />
-
       <div>
         <h1>Standings</h1>
-        {record.length ?
+
+        {isLoading ?
+          <Loader /> :
           <div>
-            {conference.length ?
-              <StandingsWithConferences /> :
+            {record.length ?
               <div>
-                {division.length ?
-                  <StandingsWithDivisions /> :
-                  <Standings />
+                {conference.length ?
+                  <StandingsWithConferences /> :
+                  <div>
+                    {division.length ?
+                      <StandingsWithDivisions /> :
+                      <Standings />
+                    }
+                  </div>
                 }
+              </div> :
+              <div>
               </div>
             }
-          </div> :
-          <div>
-
           </div>
         }
       </div >

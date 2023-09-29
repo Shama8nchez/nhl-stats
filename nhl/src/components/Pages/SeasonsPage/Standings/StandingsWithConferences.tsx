@@ -73,7 +73,7 @@ const StandingsWithConferences = () => {
                                 record
                                   .filter((r: Record) => r.division.name === division)
                                   .map((team: Record) => team.teamRecords
-                                    .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />))
+                                    .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.divisionRank}/>))
                               }
                             </tbody>
                           </table>
@@ -98,10 +98,10 @@ const StandingsWithConferences = () => {
                     {conference === conferences[0] ?
                       firstTeamRecords
                         .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                        .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />) :
+                        .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.conferenceRank}/>) :
                       secondTeamRecords
                         .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                        .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />)
+                        .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.conferenceRank}/>)
                     }
                   </tbody>
                 </table>
@@ -116,7 +116,7 @@ const StandingsWithConferences = () => {
               <tbody>
                 {commonTeamRecords
                   .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                  .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />)}
+                  .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.leagueRank}/>)}
               </tbody>
             </table>
           </TabPanel>

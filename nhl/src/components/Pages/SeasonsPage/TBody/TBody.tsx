@@ -2,12 +2,12 @@ import { TeamStats } from '../../../../types/SeasonsTypes';
 import classes from '../Standings/Standings.module.css'
 import { useAppSelector } from '../../../../store/store';
 
-const TBody = (props: { teamRecord: TeamStats }) => {
+const TBody = (props: { teamRecord: TeamStats, rank: string }) => {
   const record = useAppSelector(state => state.seasons.season)
 
   return (
     <tr>
-      <td>{props.teamRecord.leagueRank}</td>
+      <td>{props.rank}</td>
       <td className={classes.leftAlign}>{props.teamRecord.team.name}</td>
       <td>{props.teamRecord.gamesPlayed}</td>
       <td>{props.teamRecord.leagueRecord.wins}</td>

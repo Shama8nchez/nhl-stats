@@ -42,7 +42,7 @@ const StandingsWithDivisions = () => {
                       record
                         .filter((r: Record) => r.division.name === division)
                         .map((team: Record) => team.teamRecords
-                          .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />))
+                          .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.divisionRank} />))
                     }
                   </tbody>
                 </table>
@@ -58,7 +58,7 @@ const StandingsWithDivisions = () => {
             <tbody>
               {[...record[0].teamRecords, ...record[1].teamRecords]
                 .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />)}
+                .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.leagueRank}/>)}
             </tbody>
           </table>
         </div></TabPanel>

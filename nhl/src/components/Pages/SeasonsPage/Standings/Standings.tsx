@@ -13,7 +13,7 @@ const Standings = () => {
       <table className={classes.table}>
         <THead />
         <tbody>
-          {record[0].teamRecords.map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank}/>)}
+          {record[0].teamRecords.map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.leagueRank}/>)}
         </tbody>
       </table>
     </div>

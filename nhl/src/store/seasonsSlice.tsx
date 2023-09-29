@@ -46,10 +46,11 @@ export const seasonsSlice = createSlice({
         state.conference = []
         state.division = []
         state.season = []
+        state.isLoading = true
       })
       .addCase(getSeason.fulfilled, (state, action) => {
         state.season = action.payload;
-
+        state.isLoading = false
       })
       .addCase(getSeason.rejected, () => {
 
