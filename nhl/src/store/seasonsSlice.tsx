@@ -1,7 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
 import { seasonsAPI } from '../API/seasonsAPI';
-import { Season } from '../types/SeasonsTypes';
+import { Record, Season } from '../types/SeasonsTypes';
 
 export const getSeasons = createAsyncThunk(
   'players/getSeasons',
@@ -16,11 +16,15 @@ export const getSeason = createAsyncThunk(
 const initialState: {
   seasons: Season[],
   isLoading: boolean,
-  season: any
+  season: Record[],
+  conference: string[],
+  division: string[],
 } = {
   seasons: [],
   isLoading: false,
-  season: []
+  season: [],
+  conference: [],
+  division: [],
 }
 
 export const seasonsSlice = createSlice({
@@ -38,8 +42,10 @@ export const seasonsSlice = createSlice({
       .addCase(getSeasons.rejected, () => {
         console.log('reject')
       })
-      .addCase(getSeason.pending, () => {
-
+      .addCase(getSeason.pending, (state) => {
+        state.conference = []
+        state.division = []
+        state.season = []
       })
       .addCase(getSeason.fulfilled, (state, action) => {
         state.season = action.payload;
@@ -50,12 +56,15 @@ export const seasonsSlice = createSlice({
       })
   },
   reducers: {
-    /* setID(state, action: PayloadAction<number>) {
-      state.id = action.payload
-    } */
+    setConference(state, action: PayloadAction<string[] | []>) {
+      state.conference = action.payload
+    },
+    setDivision(state, action: PayloadAction<string[] | []>) {
+      state.division = action.payload
+    }
   }
 })
 
-export const {  } = seasonsSlice.actions
+export const { setConference, setDivision } = seasonsSlice.actions
 
 export default seasonsSlice.reducer

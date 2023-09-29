@@ -1,0 +1,10 @@
+.table {
+  margin: 0 auto;
+  width: 65%;
+  border-collapse: collapse;
+}
+
+.leftAlign {
+  padding-left: 5px;
+  text-align: left;
+}
