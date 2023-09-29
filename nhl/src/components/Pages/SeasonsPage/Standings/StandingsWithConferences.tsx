@@ -7,6 +7,8 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { useEffect, useState } from 'react';
+import THead from '../THead/THead';
+import TBody from '../TBody/TBody';
 
 const StandingsWithConferences = () => {
   const record = useAppSelector(state => state.seasons.season)
@@ -56,164 +58,71 @@ const StandingsWithConferences = () => {
           </Box>
           <TabPanel value="1">
             <div>{conferences.map(conference =>
-              <div>
-                <div>
-                  {conference}
-                </div>
-                <div>
+              <div key={conference}>
                   {divisions.map(division =>
-                    <div>
+                    <div key={division}>
                       {record.filter((r: { conference: { name: string; } }) => r.conference.name === conference)
                         .filter((r: { division: { name: string; } }) => r.division.name === division)
-                        .map((r: { division: { name: string; } }) => <div><h3>
+                        .map((r: { division: { name: string; } }) => <div key={`div${r.division.name}`}><h3>
                           {r.division.name} division
                         </h3>
                           <table className={classes.table}>
-                            <thead>
-                              <tr>
-                                <th>#</th>
-                                <th>Team</th>
-                                <th>Games</th>
-                                <th>Wins</th>
-                                {Number(record[0].season) > 19992000 ? <th>OT</th> : <></>}
-                                {Number(record[0].season) < 20052006 ? <th>Ties</th> : <></>}
-                                <th>Losses</th>
-                                <th>Points</th>
-                                <th>Goals</th>
-                              </tr>
-                            </thead>
+                            <THead />
                             <tbody>
                               {
                                 record
                                   .filter((r: Record) => r.division.name === division)
-                                  .map((team: Record) => team.teamRecords.map((i: TeamStats) => <tr key={i.leagueRank}>
-                                    <td>{i.divisionRank}</td>
-                                    <td className={classes.leftAlign}>{i.team.name}</td>
-                                    <td>{i.gamesPlayed}</td>
-                                    <td>{i.leagueRecord.wins}</td>
-                                    {Number(record[0].season) > 19992000 ? <td>{i.leagueRecord.ot}</td> : <></>}
-                                    {Number(record[0].season) < 20052006 ? <td>{i.leagueRecord.ties}</td> : <></>}
-                                    {/* <td>{i.leagueRecord.ties}</td> */}
-                                    <td>{i.leagueRecord.losses}</td>
-                                    <td>{i.points}</td>
-                                    <td>{i.goalsScored} - {i.goalsAgainst}</td>
-                                  </tr>))
+                                  .map((team: Record) => team.teamRecords
+                                    .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />))
                               }
                             </tbody>
                           </table>
                         </div>)
                       }
-                      {
-                      }
                     </div>
                   )
                   }
-                </div>
               </div>
             )}
             </div>
           </TabPanel>
           <TabPanel value="2">
             <div>{conferences.map(conference =>
-              <div>
-                <div>
-                  <div><h3>
-                    {conference} conference
-                  </h3>
-                    <table className={classes.table}>
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Team</th>
-                          <th>Games</th>
-                          <th>Wins</th>
-                          {Number(record[0].season) > 19992000 ? <th>OT</th> : <></>}
-                          {Number(record[0].season) < 20052006 ? <th>Ties</th> : <></>}
-                          <th>Losses</th>
-                          <th>Points</th>
-                          <th>Goals</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        { conference === conferences[0] ?
-                          firstTeamRecords
-                          .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                            .map((i: TeamStats) => <tr key={i.leagueRank}>
-                              <td>{i.conferenceRank}</td>
-                              <td className={classes.leftAlign}>{i.team.name}</td>
-                              <td>{i.gamesPlayed}</td>
-                              <td>{i.leagueRecord.wins}</td>
-                              {Number(record[0].season) > 19992000 ? <td>{i.leagueRecord.ot}</td> : <></>}
-                              {Number(record[0].season) < 20052006 ? <td>{i.leagueRecord.ties}</td> : <></>}
-                              {/* <td>{i.leagueRecord.ties}</td> */}
-                              <td>{i.leagueRecord.losses}</td>
-                              <td>{i.points}</td>
-                              <td>{i.goalsScored} - {i.goalsAgainst}</td>
-                            </tr>) :
-                            secondTeamRecords
-                            .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                              .map((i: TeamStats) => <tr key={i.leagueRank}>
-                                <td>{i.conferenceRank}</td>
-                                <td className={classes.leftAlign}>{i.team.name}</td>
-                                <td>{i.gamesPlayed}</td>
-                                <td>{i.leagueRecord.wins}</td>
-                                {Number(record[0].season) > 19992000 ? <td>{i.leagueRecord.ot}</td> : <></>}
-                                {Number(record[0].season) < 20052006 ? <td>{i.leagueRecord.ties}</td> : <></>}
-                                {/* <td>{i.leagueRecord.ties}</td> */}
-                                <td>{i.leagueRecord.losses}</td>
-                                <td>{i.points}</td>
-                                <td>{i.goalsScored} - {i.goalsAgainst}</td>
-                              </tr>)
-                        }
-                      </tbody>
-                    </table>
-                  </div>
-
-                </div>
-
+              <div key={`2${conference}`}>
+                <h3>
+                  {conference} conference
+                </h3>
+                <table className={classes.table}>
+                  <THead />
+                  <tbody>
+                    {conference === conferences[0] ?
+                      firstTeamRecords
+                        .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
+                        .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />) :
+                      secondTeamRecords
+                        .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
+                        .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />)
+                    }
+                  </tbody>
+                </table>
               </div>
             )}
             </div>
           </TabPanel>
           <TabPanel value="3">
+            <h3>League</h3>
             <table className={classes.table}>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Team</th>
-                  <th>Games</th>
-                  <th>Wins</th>
-                  {Number(record[0].season) > 19992000 ? <th>OT</th> : <></>}
-                          {Number(record[0].season) < 20052006 ? <th>Ties</th> : <></>}
-                  <th>Losses</th>
-                  <th>Points</th>
-                  <th>Goals</th>
-                </tr>
-              </thead>
+              <THead />
               <tbody>
                 {commonTeamRecords
                   .sort((a, b) => Number(a.leagueRank) - Number(b.leagueRank))
-                  .map((i: TeamStats) => <tr key={i.leagueRank}>
-                    <td>{i.leagueRank}</td>
-                    <td className={classes.leftAlign}>{i.team.name}</td>
-                    <td>{i.gamesPlayed}</td>
-                    <td>{i.leagueRecord.wins}</td>
-                    {Number(record[0].season) > 19992000 ? <td>{i.leagueRecord.ot}</td> : <></>}
-                              {Number(record[0].season) < 20052006 ? <td>{i.leagueRecord.ties}</td> : <></>}
-                    <td>{i.leagueRecord.losses}</td>
-                    <td>{i.points}</td>
-                    <td>{i.goalsScored} - {i.goalsAgainst}</td>
-                  </tr>)}
+                  .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} />)}
               </tbody>
             </table>
           </TabPanel>
         </TabContext>
       </Box>
-
-
     </div>
-
-
   )
 }
 
