@@ -4,7 +4,7 @@
 
 .container {
   width: 600px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .currentSeason {
@@ -13,16 +13,20 @@
 }
 
 .title {
-  margin-bottom: 20px;
+  margin: 10px 0;
   text-align: center;
   font-size: 32px;
   letter-spacing: 2.5px;
   word-spacing: 10px;
 }
 
+p {
+  margin-top: 0;
+}
+
 .description {
   letter-spacing: 1.1px;
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -43,10 +47,6 @@
 @media (max-width: 1440px) {
   .container {
     width: 400px;
-  }
-
-  .title {
-    margin-bottom: 15px;
   }
 
   .description {

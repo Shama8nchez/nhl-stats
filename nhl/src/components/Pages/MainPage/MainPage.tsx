@@ -14,9 +14,9 @@ function MainPage() {
       
       <div className={classes.currentSeason}>
         <div className={classes.container}>
-          <h2 className={classes.title}>Current season</h2>
-          <p className={classes.description}>Get information about 2023 Formula One season</p>
-          <Link to={"https://rapidapi.com/kpeshterski/api/fia-formula-1-championship-statistics/"} className={classes.button}>More information</Link>
+          <h2 className={classes.title}>About project</h2>
+          <p className={classes.description}>This educational project focuses on the National Hockey League, covering seasons, teams, and players. It is built using React and Redux Toolkit. The project provides information about various NHL seasons, including team standings and player statistics.</p>
+          <Link to={"https://github.com/Shama8nchez"} className={classes.button}>GitHub</Link>
         </div>
       </div>
     </div >

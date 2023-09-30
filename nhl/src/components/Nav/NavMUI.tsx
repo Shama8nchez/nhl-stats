@@ -25,7 +25,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ['Main', 'About', 'Teams', 'Seasons'];
+const navItems = ['About', 'Teams', 'Seasons'];
 
 export default function DrawerAppBar(props: Props) {
   const { window } = props;
@@ -103,7 +103,7 @@ export default function DrawerAppBar(props: Props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3, width: '100%' }}>
+      <Box component="main" sx={{ p: 3, width: '100%', background: 'rgba(255,255,255,0.1)' }}>
         <Toolbar />
         <Routes>
           <Route path='/' element={<MainPage />} />

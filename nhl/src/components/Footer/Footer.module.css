@@ -1,0 +1,13 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 2em;
+  right: 2em;
+  min-height: 50px;
+
+}
+
+.rights {
+  font-size: 14px;
+  color: white;
+}
