@@ -12,7 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import TeamsPage from '../Pages/TeamsPage/TeamsPage';
 import TeamPage from '../Pages/TeamPage/TeamPage';
 import PlayerPage from '../Pages/PlayerPage/PlayerPage';
@@ -103,7 +103,7 @@ export default function DrawerAppBar(props: Props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3, width: '100%', background: 'rgba(255,255,255,0.1)' }}>
+      <Box component="main" sx={{ p: 1.5, width: '100%', background: 'rgba(255,255,255,0.1)' }}>
         <Toolbar />
         <Routes>
           <Route path='/' element={<MainPage />} />
@@ -111,6 +111,10 @@ export default function DrawerAppBar(props: Props) {
           <Route path='/seasons' element={<SeasonsPage />} />
           <Route path='/teams/:id' element={<TeamPage />} />
           <Route path='/player/:id' element={<PlayerPage />} />
+          <Route
+                    path="/about"
+                    element={ <Navigate to="/" /> }
+                />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </Box>

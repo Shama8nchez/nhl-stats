@@ -6,3 +6,21 @@
   padding: 2rem 2rem 50px 2rem;
   text-align: center;
 }
+
+@media (max-width: 1440px) {
+  #root {
+    padding: 2rem 2rem 60px 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 2rem 2rem 80px 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #root {
+    padding: 2rem 1rem 110px 1rem;
+  }
+}
