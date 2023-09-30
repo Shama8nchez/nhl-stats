@@ -33,3 +33,41 @@ export type TeamStats = {
     name: string
   }
 }
+
+export type Round = {
+  number: number,
+  code: number,
+  names: {
+    name: string,
+    shortName: string
+  },
+  format: {
+    name: string,
+    description: string,
+    numberOfGames: number,
+    numberOfWins: number
+  },
+  series: Series[]
+}
+
+export type Series = {
+  seriesNumber: number,
+  matchupTeams: MatchupTeams[]
+}
+
+export type MatchupTeams = {
+  team: {
+    id: number,
+    name: string,
+    link: string
+    },
+    seed: {
+    type: string,
+    rank: number,
+    isTop: boolean
+    },
+    seriesRecord: {
+    wins: number,
+    losses: number
+    }
+}

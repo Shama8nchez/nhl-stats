@@ -6,7 +6,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { Season } from '../../../../types/SeasonsTypes';
 import { useAppDispatch, useAppSelector } from '../../../../store/store';
 import { useEffect, useState } from 'react';
-import { getSeason, getSeasons } from '../../../../store/seasonsSlice';
+import { getPlayoff, getSeason, getSeasons } from '../../../../store/seasonsSlice';
 
 const SeasonsSelect = () => {
   const [season, setSeason] = useState('');
@@ -24,6 +24,7 @@ const SeasonsSelect = () => {
 
   useEffect(() => {
     dispatch(getSeason(season))
+    dispatch(getPlayoff(season))
   }, [season])
 
   return (

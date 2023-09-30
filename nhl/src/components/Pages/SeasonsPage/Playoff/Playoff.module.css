@@ -1,0 +1,19 @@
+.series {
+  display: flex;
+  justify-content: center;
+}
+
+.team {
+  padding: 0 10px;
+  width: 200px;
+}
+
+.teamWin {
+  padding: 0 10px;
+  width: 200px;
+  font-weight: 700;
+}
+
+h2 {
+  margin-bottom: 10px;
+}

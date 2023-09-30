@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 
 import { seasonsAPI } from '../API/seasonsAPI';
-import { Record, Season } from '../types/SeasonsTypes';
+import { Record, Round, Season } from '../types/SeasonsTypes';
 
 export const getSeasons = createAsyncThunk(
   'players/getSeasons',
@@ -13,18 +13,25 @@ export const getSeason = createAsyncThunk(
   seasonsAPI.getSeason
 )
 
+export const getPlayoff = createAsyncThunk(
+  'players/getPlayoff',
+  seasonsAPI.getPlayoff
+)
+
 const initialState: {
   seasons: Season[],
   isLoading: boolean,
   season: Record[],
   conference: string[],
   division: string[],
+  rounds: Round[]
 } = {
   seasons: [],
   isLoading: false,
   season: [],
   conference: [],
   division: [],
+  rounds: []
 }
 
 export const seasonsSlice = createSlice({
@@ -53,6 +60,16 @@ export const seasonsSlice = createSlice({
         state.isLoading = false
       })
       .addCase(getSeason.rejected, () => {
+
+      })
+      .addCase(getPlayoff.pending, (state) => {
+        state.isLoading = true
+      })
+      .addCase(getPlayoff.fulfilled, (state, action) => {
+        state.rounds = action.payload;
+        state.isLoading = false
+      })
+      .addCase(getPlayoff.rejected, () => {
 
       })
   },

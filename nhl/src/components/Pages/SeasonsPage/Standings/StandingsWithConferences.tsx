@@ -9,6 +9,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import { useEffect, useState } from 'react';
 import THead from '../THead/THead';
 import TBody from '../TBody/TBody';
+import Playoff from '../Playoff/Playoff';
 
 const StandingsWithConferences = () => {
   const record = useAppSelector(state => state.seasons.season)
@@ -54,6 +55,7 @@ const StandingsWithConferences = () => {
               <Tab label="Divisions" value="1" />
               <Tab label="Conferences" value="2" />
               <Tab label="League" value="3" />
+              <Tab label="Stanley Cup" value="4" sx={{ marginLeft: 'auto' }} />
             </TabList>
           </Box>
           <TabPanel value="1">
@@ -119,6 +121,9 @@ const StandingsWithConferences = () => {
                   .map((teamRecord: TeamStats) => <TBody teamRecord={teamRecord} key={teamRecord.leagueRank} rank={teamRecord.leagueRank}/>)}
               </tbody>
             </table>
+          </TabPanel>
+          <TabPanel value="4">
+            <Playoff />
           </TabPanel>
         </TabContext>
       </Box>

@@ -7,6 +7,7 @@ import StandingsWithDivisions from './Standings/StandingsWithDivisions';
 import StandingsWithConferences from './Standings/StandingsWithConferences';
 import SeasonsSelect from './SeasonSelect/SeasonSelect';
 import Loader from '../../UI/Loader/Loader';
+import classes from './SeasonsPage.module.css'
 
 const SeasonsPage = () => {
   const record: Record[] = useAppSelector(state => state.seasons.season)
@@ -35,9 +36,7 @@ const SeasonsPage = () => {
   return (
     <div>
       <SeasonsSelect />
-      <div>
-        <h1>Standings</h1>
-
+      <div className={classes.container}>
         {isLoading ?
           <Loader /> :
           <div>
