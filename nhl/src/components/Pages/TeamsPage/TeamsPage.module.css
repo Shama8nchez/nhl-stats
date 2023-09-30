@@ -20,3 +20,19 @@ h2 {
 h3 {
   text-align: left;
 }
+
+@media (max-width: 768px) {
+  .teams {
+    justify-content: center;
+  }
+
+  .conference {
+    width: 90%;
+  }
+}
+
+@media (max-width: 560px) {
+  .conference {
+    width: 94%;
+  }
+}

@@ -32,3 +32,40 @@
   color: #1976d2;
   text-decoration: none;
 }
+
+@media (max-width: 1200px) {
+  .teamName {
+    width: 220px;
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 1010px) {
+  .teamName {
+    width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .teamName {
+    width: 220px;
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 560px) {
+  .teamName {
+    width: 195px;
+    font-size: 1em;
+  }
+  .info {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 485px) {
+  .teamName {
+    width: 45px;
+    font-size: 1.2em;
+  }
+}
