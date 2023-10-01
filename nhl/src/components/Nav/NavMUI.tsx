@@ -73,7 +73,7 @@ export default function DrawerAppBar(props: Props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            MUI
+            <Logo size='small' logo={logos["Anaheim Ducks"]}/>
           </Typography>} */}
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
@@ -111,11 +111,8 @@ export default function DrawerAppBar(props: Props) {
           <Route path='/seasons' element={<SeasonsPage />} />
           <Route path='/teams/:id' element={<TeamPage />} />
           <Route path='/player/:id' element={<PlayerPage />} />
-          <Route
-                    path="/about"
-                    element={ <Navigate to="/" /> }
-                />
-          <Route path='*' element={<NotFound />} />
+          <Route path="/about" element={ <Navigate to="/" /> } />
+          <Route path='/*' element={<NotFound />} />
         </Routes>
       </Box>
     </Box>

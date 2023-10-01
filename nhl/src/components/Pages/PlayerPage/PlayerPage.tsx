@@ -28,7 +28,7 @@ function PlayerPage() {
       dispatch(getStats(id))
     }
 
-  }, [])
+  }, [id])
 
   return (
     <div className={classes.teams}>

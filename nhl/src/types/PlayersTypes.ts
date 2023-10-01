@@ -43,6 +43,9 @@ export type Stats = {
     faceOffPct: number,
     points: number,
     plusMinus?: number
+    goalsAgainst?: number,
+    goalAgainstAverage: number,
+    savePercentage: number
   },
   team: {
     id: number,
