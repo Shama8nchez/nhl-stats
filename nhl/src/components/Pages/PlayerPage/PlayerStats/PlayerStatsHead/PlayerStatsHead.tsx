@@ -22,7 +22,7 @@ function PlayerStatsHead(props: {position: string}) {
             <th>Assists</th>
             <th>Points</th>
             <th>+/-</th>
-            <th>Penalty minutes</th>
+            <th>Pen(min)</th>
           </tr>
       }
     </thead>

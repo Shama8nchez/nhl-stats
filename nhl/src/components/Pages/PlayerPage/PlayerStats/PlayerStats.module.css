@@ -14,3 +14,39 @@ th {
 td {
   border: 1px dashed #1976d2;
 }
+
+@media (max-width: 1024px) {
+  .statsTable {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsTable {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 585px) {
+  .statsTable {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 510px) {
+  .statsTable {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 445px) {
+  .statsTable {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 350px) {
+  .statsTable {
+    font-size: 7px;
+  }
+}

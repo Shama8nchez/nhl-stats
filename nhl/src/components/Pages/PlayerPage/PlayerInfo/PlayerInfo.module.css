@@ -17,3 +17,13 @@
   font-size: 14px;
   text-align: right;
 }
+
+@media (max-width: 768px) {
+  .teamTitle {
+    font-size: 1.5em;
+  }
+
+  .playerInfo {
+    font-size: 14px;
+  }
+}
