@@ -2,6 +2,7 @@ import classes from './PlayerStats.module.css'
 import { Player, Stats } from '../../../../types/PlayersTypes';
 import { useAppSelector } from "../../../../store/store";
 import PlayerStatsHead from './PlayerStatsHead/PlayerStatsHead';
+import PlayerStatsBody from './PlayerStatsBody/PlayerStatsBody';
 
 function PlayerStats() {
   const stats: Stats[] = useAppSelector(state => state.players.stats)
@@ -12,7 +13,8 @@ function PlayerStats() {
       <h2>Player statistics</h2>
       <table className={classes.statsTable}>
         <PlayerStatsHead position={player[0].primaryPosition.name} />
-        {
+        <PlayerStatsBody position={player[0].primaryPosition.name} stats={stats} />
+        {/* {
           player[0].primaryPosition.name === 'Goalie' ? <tbody>
             {stats.map((stat, i) => (
               <tr key={i}>
@@ -41,7 +43,7 @@ function PlayerStats() {
                 </tr>
               ))}
             </tbody>
-        }
+        } */}
 
       </table>
     </div>

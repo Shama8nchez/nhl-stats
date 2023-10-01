@@ -1,6 +1,6 @@
 import { Stats } from '../../../../../types/PlayersTypes';
 
-function PlayerStats(props: { position: string, stats: Stats[] }) {
+function PlayerStatsBody(props: { position: string, stats: Stats[] }) {
   return (
     <>
       {
@@ -13,7 +13,7 @@ function PlayerStats(props: { position: string, stats: Stats[] }) {
                 <td>{stat.team.name}</td>
                 <td>{stat.stat.games}</td>
                 <td>{stat.stat.goalsAgainst}</td>
-                <td>{stat.stat.goalAgainstAverage.toFixed(2)}</td>
+                <td>{stat.stat.goalAgainstAverage ? stat.stat.goalAgainstAverage.toFixed(2) : ''}</td>
                 <td>{stat.stat.savePercentage ? stat.stat.savePercentage.toFixed(2) : ''}</td>
               </tr>
             ))}
@@ -39,4 +39,4 @@ function PlayerStats(props: { position: string, stats: Stats[] }) {
   )
 }
 
-export default PlayerStats;
+export default PlayerStatsBody;

@@ -24,3 +24,36 @@
     "G G G P P"
     "S S S P P"
 }
+
+@media (max-width: 768px) {
+  .container {
+    gap: 50px;
+    grid-template-areas:
+      "C"
+      "G"
+      "S"
+      "P"
+  }
+}
+
+@media (max-width: 600px) {
+  .teamTitle {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 425px) {
+  .content {
+    font-size: 14px;
+  }
+
+  .teamTitle {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 425px) {
+  .content {
+    font-size: 12px;
+  }
+}
