@@ -52,13 +52,13 @@ const StandingsWithConferences = () => {
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
             <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab label="Divisions" value="1" />
-              <Tab label="Conferences" value="2" />
-              <Tab label="League" value="3" />
-              <Tab label="Stanley Cup" value="4" sx={{ marginLeft: 'auto' }} />
+              {window.screen.width >= 400 ? <Tab label="Divisions" value="1" className={classes.btn}/> : <Tab label="D" value="1" className={classes.btn}/>}
+              {window.screen.width >= 400 ? <Tab label="Conferences" value="2"  className={classes.btn}/> : <Tab label="C" value="2" className={classes.btn}/>}
+              {window.screen.width >= 400 ? <Tab label="League" value="3"  className={classes.btn}/> : <Tab label="L" value="3" className={classes.btn}/>}
+              {window.screen.width >= 400 ? <Tab label="Stanley Cup" value="4" sx={{ marginLeft: 'auto' }} className={classes.btn} /> : <Tab label="SC" value="4" className={classes.btn}/>}
             </TabList>
           </Box>
-          <TabPanel value="1">
+          <TabPanel value="1" sx={{paddingRight: '5px', paddingLeft: '5px'}}>
             <div>{conferences.map(conference =>
               <div key={conference}>
                   {divisions.map(division =>
@@ -88,7 +88,7 @@ const StandingsWithConferences = () => {
             )}
             </div>
           </TabPanel>
-          <TabPanel value="2">
+          <TabPanel value="2" sx={{paddingRight: '5px', paddingLeft: '5px'}}>
             <div>{conferences.map(conference =>
               <div key={`2${conference}`}>
                 <h3>
@@ -111,7 +111,7 @@ const StandingsWithConferences = () => {
             )}
             </div>
           </TabPanel>
-          <TabPanel value="3">
+          <TabPanel value="3" sx={{paddingRight: '5px', paddingLeft: '5px'}}>
             <h3>League</h3>
             <table className={classes.table}>
               <THead />
@@ -122,7 +122,7 @@ const StandingsWithConferences = () => {
               </tbody>
             </table>
           </TabPanel>
-          <TabPanel value="4">
+          <TabPanel value="4" sx={{paddingRight: '5px', paddingLeft: '5px'}}>
             <Playoff />
           </TabPanel>
         </TabContext>

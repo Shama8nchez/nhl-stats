@@ -17,3 +17,48 @@
 h2 {
   margin-bottom: 10px;
 }
+
+@media (max-width: 600px) {
+  .series {
+    font-size: 12px;
+  }
+
+  .team {
+    width: 160px;
+  }
+  
+  .teamWin {
+    width: 160px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 470px) {
+  .series {
+    font-size: 10px;
+  }
+
+  .team {
+    width: 140px;
+  }
+  
+  .teamWin {
+    width: 140px;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 470px) {
+  .series {
+    font-size: 9px;
+  }
+
+  .team {
+    width: 125px;
+  }
+  
+  .teamWin {
+    width: 125px;
+    font-weight: 700;
+  }
+}

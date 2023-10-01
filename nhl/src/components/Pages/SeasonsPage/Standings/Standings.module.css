@@ -8,3 +8,67 @@
   padding-left: 5px;
   text-align: left;
 }
+
+@media (max-width: 950px) {
+  .table {
+    width: 90%;
+  }
+}
+
+@media (max-width: 750px) {
+  .table {
+    width: 98%;
+    font-size: 14px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .btn {
+    padding: 12px 8px !important; 
+    font-size: 12px !important;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 545px) {
+  .table {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 515px) {
+  .table {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 10px 3px !important; 
+    font-size: 10px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .table {
+    font-size: 9px;
+  }
+}
+
+
+@media (max-width: 400px) {
+  .btn {
+    width: 40px !important;
+    padding: 10px 5px !important; 
+    font-size: 10px !important;
+    min-width: 40px !important;
+  }
+
+  .table {
+    font-size: 8px;
+  }
+}
