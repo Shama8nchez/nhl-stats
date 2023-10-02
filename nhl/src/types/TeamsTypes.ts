@@ -43,7 +43,7 @@ export type nextGame = {
   ]
 }
 
-type Roster = {
+export type Roster = {
   person: {
     id: number,
     fullName: string,

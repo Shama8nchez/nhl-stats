@@ -14,8 +14,10 @@ export const playersAPI = {
 
   async getStats(id: number) {
     const response = await fetch(`${BASE_URL}/api/v1/people/${id}/stats?stats=yearByYear`);
-    const data = await response.json();
-    const stats: Stats[] = await data.stats[0].splits;
-    return stats;
+    if (response.status === 200) {
+      const data = await response.json();
+      const stats: Stats[] = await data.stats[0].splits;
+      return stats;
+    } else return []
   }
 }

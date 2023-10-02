@@ -34,7 +34,7 @@ function PlayerPage() {
   return (
     <div className={classes.teams}>
       {isPlayerLoading || isStatsLoading ? <Loader /> :
-        player.length !== 0 ?
+        player.length !== 0 && player[0].currentTeam ?
           <div className={classes.content}>
             {player[0].currentTeam ? <Logo logo={Logos[player[0].currentTeam.name]} size="large" /> : <div></div>}
             <PlayerInfo />
