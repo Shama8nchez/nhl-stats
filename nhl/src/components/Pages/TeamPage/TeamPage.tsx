@@ -1,6 +1,6 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
-import { getTeam, setID, getStats, getNextGame } from "../../../store/teamsSlice";
+import { getTeam, getStats, getNextGame } from "../../../store/teamsSlice";
 import classes from './TeamPage.module.css';
 import Logos from '../../../assets/logo/index'
 import { Team } from "../../../types/TeamsTypes";
@@ -16,26 +16,21 @@ import Games from "./Games/Games";
 
 function TeamPage() {
   const team: Team[] = useAppSelector(state => state.teams.team)
-  const id = useAppSelector(state => state.teams.id)
   const isLoading: boolean = useAppSelector(state => state.teams.isLoading)
   const dispatch = useAppDispatch()
 
-  let params = useParams()
-
-  useMemo(() => {
-    dispatch(setID(Number(params.id)))
-  }, [id]);
+  const { id } = useParams()
 
   useEffect(() => {
     if (id) {
-      dispatch(getTeam(id));
-      dispatch(getNextGame(id));
+      dispatch(getTeam(Number(id)));
+      dispatch(getNextGame(Number(id)));
     }
   }, [])
 
   useEffect(() => {
     if (id) {
-      dispatch(getStats(id))
+      dispatch(getStats(Number(id)))
     }
   }, [])
 

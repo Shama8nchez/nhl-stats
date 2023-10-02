@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { Team, TeamStats, nextGame } from '../types/TeamsTypes';
 import { teamsAPI } from '../API/teamsAPI';
 
@@ -26,14 +26,12 @@ const initialState: {
   teams: Team[],
   team: Team[],
   stats: TeamStats[],
-  id: number | null,
   isLoading: boolean,
   nextGame: nextGame | null
 } = {
   teams: [],
   team: [],
   stats: [],
-  id: null,
   isLoading: false,
   nextGame: null
 }
@@ -83,12 +81,8 @@ export const teamsSlice = createSlice({
       })
   },
   reducers: {
-    setID(state, action: PayloadAction<number>) {
-      state.id = action.payload
-    }
+
   }
 })
-
-export const {setID } = teamsSlice.actions
 
 export default teamsSlice.reducer
