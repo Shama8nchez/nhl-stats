@@ -15,12 +15,14 @@ export const getStats = createAsyncThunk(
 
 const initialState: {
   player: Player[],
-  isLoading: boolean,
+  isPlayerLoading: boolean,
+  isStatsLoading: boolean,
   id: number | null,
   stats: Stats[]
 } = {
   player: [],
-  isLoading: false,
+  isPlayerLoading: false,
+  isStatsLoading: false,
   id: null,
   stats: []
 }
@@ -31,20 +33,21 @@ export const playersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getPlayer.pending, (state) => {
-        state.isLoading = true
+        state.isPlayerLoading = true
       })
       .addCase(getPlayer.fulfilled, (state, action) => {
         state.player = action.payload;
-        state.isLoading = false
+        state.isPlayerLoading = false
       })
       .addCase(getPlayer.rejected, () => {
         console.log('reject')
       })
-      .addCase(getStats.pending, () => {
-
+      .addCase(getStats.pending, (state) => {
+        state.isStatsLoading = true
       })
       .addCase(getStats.fulfilled, (state, action) => {
         state.stats = action.payload;
+        state.isStatsLoading = false
       })
       .addCase(getStats.rejected, () => {
 

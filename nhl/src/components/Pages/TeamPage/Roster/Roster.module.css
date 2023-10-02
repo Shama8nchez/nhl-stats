@@ -19,6 +19,12 @@
 .link {
   color: black;
   text-decoration: none;
+  border-bottom: 1px dashed #1976d2;
+  transition: 0.35s;
+}
+
+.link:hover {
+  color: #1976d2;
 }
 
 @media (max-width: 768px) {

@@ -14,7 +14,8 @@ import PlayerStats from './PlayerStats/PlayerStats';
 function PlayerPage() {
   const player: Player[] = useAppSelector(state => state.players.player)
   const id = useAppSelector(state => state.players.id)
-  const isLoading: boolean = useAppSelector(state => state.players.isLoading)
+  const isPlayerLoading: boolean = useAppSelector(state => state.players.isPlayerLoading)
+  const isStatsLoading: boolean = useAppSelector(state => state.players.isStatsLoading)
   const dispatch = useAppDispatch()
 
   let params = useParams()
@@ -32,7 +33,7 @@ function PlayerPage() {
 
   return (
     <div className={classes.teams}>
-      {isLoading ? <Loader /> :
+      {isPlayerLoading || isStatsLoading ? <Loader /> :
         player.length !== 0 ?
           <div className={classes.content}>
             {player[0].currentTeam ? <Logo logo={Logos[player[0].currentTeam.name]} size="large" /> : <div></div>}

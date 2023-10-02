@@ -1,10 +1,11 @@
-const BASE_URL = 'https://statsapi.web.nhl.com'
+import { Team } from "../types/TeamsTypes";
+import { BASE_URL } from "./constants";
 
 export const teamsAPI = {
   async getTeams() {
     const response = await fetch(`${BASE_URL}/api/v1/teams`);
     const data = await response.json();
-    const teams = await data.teams;
+    const teams: Team[] = await data.teams;
     return teams;
   },
 
@@ -12,7 +13,7 @@ export const teamsAPI = {
     const response = await fetch(`${BASE_URL}/api/v1/teams/${id}?expand=team.roster`);
     if (response.status === 200) {
       const data = await response.json();
-      const team = await data.teams;
+      const team: Team[] = await data.teams;
       return team;
     }
     return []

@@ -30,6 +30,7 @@ import VAN from './vancouver-canucks-logo@logotyp.us.svg'
 import VGK from './vegas-golden-knights-logo@logotyp.us.svg'
 import WPG from './winnipeg-jets-logo@logotyp.us.svg'
 import WSH from './washington-capitals-logo@logotyp.us.svg'
+import NHL from './nhl-logo@logotyp.us.svg'
 
 const logos: {[key:string]: string} = {
   "Anaheim Ducks": ANA,
@@ -63,7 +64,8 @@ const logos: {[key:string]: string} = {
   "Vancouver Canucks": VAN,
   "Vegas Golden Knights": VGK,
   "Winnipeg Jets": WPG,
-  "Washington Capitals": WSH
+  "Washington Capitals": WSH,
+  "NHL": NHL
 }
 
 export default logos;

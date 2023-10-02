@@ -63,11 +63,10 @@ export const seasonsSlice = createSlice({
 
       })
       .addCase(getPlayoff.pending, (state) => {
-        state.isLoading = true
+        state.rounds = [];
       })
       .addCase(getPlayoff.fulfilled, (state, action) => {
         state.rounds = action.payload;
-        state.isLoading = false
       })
       .addCase(getPlayoff.rejected, () => {
 

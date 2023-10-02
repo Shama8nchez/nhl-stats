@@ -19,6 +19,9 @@ import PlayerPage from '../Pages/PlayerPage/PlayerPage';
 import NotFound from '../Pages/NotFound/NotFound';
 import MainPage from '../Pages/MainPage/MainPage';
 import SeasonsPage from '../Pages/SeasonsPage/SeasonsPage';
+import { Typography } from '@mui/material';
+import Logo from '../UI/Logo/Logo';
+import logos from '../../assets/logo';
 
 interface Props {
   window?: () => Window;
@@ -68,13 +71,13 @@ export default function DrawerAppBar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          {/* {<Typography
+          <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            <Logo size='small' logo={logos["Anaheim Ducks"]}/>
-          </Typography>} */}
+            <Logo size='small' logo={logos["NHL"]}/>
+          </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: '#fff', marginRight: '25px' }}>
