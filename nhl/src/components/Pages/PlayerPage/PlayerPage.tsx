@@ -2,10 +2,10 @@ import classes from './PlayerPage.module.css'
 import Logo from "../../UI/Logo/Logo";
 import Logos from '../../../assets/logo/index'
 import { Player } from '../../../types/PlayersTypes';
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
 import { useParams } from 'react-router-dom';
-import { getPlayer, getStats, setID, setLoadersTrue } from '../../../store/playersSlice';
+import { getPlayer, getStats, setLoadersTrue } from '../../../store/playersSlice';
 import Loader from '../../UI/Loader/Loader';
 import NotFound from '../NotFound/NotFound';
 import PlayerInfo from './PlayerInfo/PlayerInfo';
@@ -13,22 +13,18 @@ import PlayerStats from './PlayerStats/PlayerStats';
 
 function PlayerPage() {
   const player: Player[] = useAppSelector(state => state.players.player)
-  const id = useAppSelector(state => state.players.id)
   const isPlayerLoading: boolean = useAppSelector(state => state.players.isPlayerLoading)
   const isStatsLoading: boolean = useAppSelector(state => state.players.isStatsLoading)
   const dispatch = useAppDispatch()
 
-  let params = useParams()
-  useMemo(() => {
-    dispatch(setID(Number(params.id)))
-  }, [id])
+  const { playerId } = useParams()
 
   useEffect(() => {
-    if (id) {
-      dispatch(getPlayer(id))
-      dispatch(getStats(id))
+    if (playerId) {
+      dispatch(getPlayer(Number(playerId)))
+      dispatch(getStats(Number(playerId)))
     }
-  }, [id])
+  }, [playerId])
 
   useEffect(() => {
     return () => {

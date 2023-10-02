@@ -113,7 +113,7 @@ export default function DrawerAppBar(props: Props) {
           <Route path='/teams' element={<TeamsPage />} />
           <Route path='/seasons' element={<SeasonsPage />} />
           <Route path='/teams/:id' element={<TeamPage />} />
-          <Route path='/player/:id' element={<PlayerPage />} />
+          <Route path='/player/:playerId' element={<PlayerPage />} />
           <Route path="/about" element={ <Navigate to="/" /> } />
           <Route path='/*' element={<NotFound />} />
         </Routes>

@@ -16,13 +16,11 @@ const initialState: {
   player: Player[],
   isPlayerLoading: boolean,
   isStatsLoading: boolean,
-  id: number | null,
   stats: Stats[]
 } = {
   player: [],
   isPlayerLoading: true,
   isStatsLoading: true,
-  id: null,
   stats: []
 }
 
@@ -53,9 +51,6 @@ export const playersSlice = createSlice({
       })
   },
   reducers: {
-    setID(state, action: PayloadAction<number>) {
-      state.id = action.payload
-    },
     setLoadersTrue(state, action: PayloadAction<boolean>) {
       state.isPlayerLoading = action.payload
       state.isStatsLoading = action.payload
@@ -63,6 +58,6 @@ export const playersSlice = createSlice({
   }
 })
 
-export const {setID, setLoadersTrue } = playersSlice.actions
+export const { setLoadersTrue } = playersSlice.actions
 
 export default playersSlice.reducer
