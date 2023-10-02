@@ -5,7 +5,7 @@ import { Player } from '../../../types/PlayersTypes';
 import { useEffect, useMemo } from "react";
 import { useAppDispatch, useAppSelector } from "../../../store/store";
 import { useParams } from 'react-router-dom';
-import { getPlayer, getStats, setID } from '../../../store/playersSlice';
+import { getPlayer, getStats, setID, setLoadersTrue } from '../../../store/playersSlice';
 import Loader from '../../UI/Loader/Loader';
 import NotFound from '../NotFound/NotFound';
 import PlayerInfo from './PlayerInfo/PlayerInfo';
@@ -28,8 +28,13 @@ function PlayerPage() {
       dispatch(getPlayer(id))
       dispatch(getStats(id))
     }
-
   }, [id])
+
+  useEffect(() => {
+    return () => {
+      dispatch(setLoadersTrue(true))
+    }
+  }, [])
 
   return (
     <div className={classes.teams}>

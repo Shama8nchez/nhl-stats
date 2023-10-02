@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
-
 import { playersAPI } from '../API/playersAPI';
 import { Player, Stats } from '../types/PlayersTypes';
 
@@ -21,8 +20,8 @@ const initialState: {
   stats: Stats[]
 } = {
   player: [],
-  isPlayerLoading: false,
-  isStatsLoading: false,
+  isPlayerLoading: true,
+  isStatsLoading: true,
   id: null,
   stats: []
 }
@@ -40,7 +39,7 @@ export const playersSlice = createSlice({
         state.isPlayerLoading = false
       })
       .addCase(getPlayer.rejected, () => {
-        console.log('reject')
+
       })
       .addCase(getStats.pending, (state) => {
         state.isStatsLoading = true
@@ -56,10 +55,14 @@ export const playersSlice = createSlice({
   reducers: {
     setID(state, action: PayloadAction<number>) {
       state.id = action.payload
+    },
+    setLoadersTrue(state, action: PayloadAction<boolean>) {
+      state.isPlayerLoading = action.payload
+      state.isStatsLoading = action.payload
     }
   }
 })
 
-export const {setID } = playersSlice.actions
+export const {setID, setLoadersTrue } = playersSlice.actions
 
 export default playersSlice.reducer
