@@ -91,3 +91,20 @@ type Division = {
   link: string,
   abbreviation: string
 }
+
+export type TeamStats = {
+  stat: {
+    gamesPlayed?: number | string,
+    wins: number | string,
+    losses: number | string,
+    ot: number | string,
+    pts: number | string,
+    goalsPerGame: number | string,
+    goalsAgainstPerGame: number | string,
+    powerPlayPercentage: string,
+    penaltyKillPercentage: string,
+    powerPlayGoals: number | string,
+    powerPlayOpportunities: number | string,
+  }
+}
+

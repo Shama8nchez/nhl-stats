@@ -1,4 +1,4 @@
-import { Team } from "../types/TeamsTypes";
+import { Team, TeamStats, nextGame } from "../types/TeamsTypes";
 import { BASE_URL } from "./constants";
 
 export const teamsAPI = {
@@ -22,14 +22,14 @@ export const teamsAPI = {
   async getStats(id: number) {
     const response = await fetch(`${BASE_URL}/api/v1/teams/${id}?expand=team.stats`);
     const data = await response.json();
-    const team = await data.teams[0].teamStats[0].splits;
+    const team: TeamStats[] = await data.teams[0].teamStats[0].splits;
     return team;
   },
 
   async getNextGame(id: number) {
     const response = await fetch(`${BASE_URL}/api/v1/teams/${id}?expand=team.schedule.next`);
     const data = await response.json();
-    const NextGame = await data.teams[0].nextGameSchedule;
+    const NextGame: nextGame = await data.teams[0].nextGameSchedule;
     return NextGame;
   }
 }

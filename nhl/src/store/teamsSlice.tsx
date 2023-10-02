@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
-import { Team, nextGame } from '../types/TeamsTypes';
+import { Team, TeamStats, nextGame } from '../types/TeamsTypes';
 import { teamsAPI } from '../API/teamsAPI';
 
 export const getTeams = createAsyncThunk(
@@ -25,14 +25,14 @@ export const getNextGame = createAsyncThunk(
 const initialState: {
   teams: Team[],
   team: Team[],
-  stats: any,
+  stats: TeamStats[],
   id: number | null,
   isLoading: boolean,
   nextGame: nextGame | null
 } = {
   teams: [],
   team: [],
-  stats: null,
+  stats: [],
   id: null,
   isLoading: false,
   nextGame: null
